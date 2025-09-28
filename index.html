@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trịnh Hg - Công Cụ Xử Lý Văn Bản</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Trịnh Hg</h1>
+            <p class="subtitle">Gia hạn tài khoản: <a href="https://www.facebook.com/trinh.hg.1" target="_blank" rel="noopener noreferrer">[link facebook]</a><br>Giá: 4k/ngày – 25k/tuần – 60k/tháng</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-link active" data-tab="settings">Settings</button>
+            <button class="tab-link" data-tab="replace">Thay Thế</button>
+            <button class="tab-link" data-tab="split">Chia Chương</button>
+        </nav>
+
+        <main class="card">
+            <!-- ================= TAB 1: SETTINGS ================= -->
+            <div id="settings" class="tab-content active">
+                <div class="settings-grid">
+                    <div class="settings-main-panel">
+                        <div class="settings-controls">
+                            <div class="control-group">
+                                <label for="mode-select">Chọn chế độ:</label>
+                                <select id="mode-select"></select>
+                            </div>
+                            <div class="control-group button-bar">
+                                <button id="add-mode-btn" class="btn">Thêm chế độ mới</button>
+                                <button id="copy-mode-btn" class="btn">Sao chép chế độ</button>
+                                <button id="rename-mode-btn" class="btn">Đổi tên</button>
+                                <button id="delete-mode-btn" class="btn btn-danger">Xóa chế độ</button>
+                            </div>
+                            <div class="control-group button-bar">
+                                <button id="import-settings-btn" class="btn">Nhập cài đặt</button>
+                                <input type="file" id="import-file-input" style="display: none;" accept=".json">
+                                <button id="export-settings-btn" class="btn">Xuất cài đặt</button>
+                            </div>
+                        </div>
+                        <div class="settings-actions">
+                            <button id="add-pair-btn" class="btn btn-primary">Thêm cặp</button>
+                            <button id="save-settings-btn" class="btn btn-success">Lưu cài đặt</button>
+                        </div>
+                        <div id="replace-pairs-container">
+                            <!-- JS will generate pairs here -->
+                        </div>
+                    </div>
+                    <div class="settings-side-panel">
+                        <div class="sub-card">
+                            <h4>Nhận diện chương</h4>
+                            <div class="chapter-keywords">
+                                <input type="text" id="chapter-keyword-input" placeholder="Thêm từ khóa (vd: Hồi)">
+                                <button id="add-keyword-btn" class="btn">Thêm</button>
+                            </div>
+                            <div id="chapter-keywords-list">
+                                <!-- JS will generate keywords here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 2: REPLACE ================= -->
+            <div id="replace" class="tab-content">
+                <div class="replace-grid">
+                    <div class="io-column">
+                        <textarea id="replace-input" placeholder="Nhập văn bản gốc vào đây..."></textarea>
+                        <div class="word-counter" id="replace-input-word-count">Số từ: 0</div>
+                        <button id="replace-btn" class="btn btn-primary btn-full-width">Thay thế</button>
+                    </div>
+                    <div class="io-column">
+                        <div id="replace-output" class="output-area" contenteditable="true"></div>
+                         <div class="word-counter" id="replace-output-word-count">Số từ: 0</div>
+                        <button id="copy-output-btn" class="btn btn-full-width">Sao chép</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 3: SPLIT ================= -->
+            <div id="split" class="tab-content">
+                <div class="split-controls" id="split-buttons-container">
+                    <!-- JS will generate split buttons here -->
+                </div>
+                <div class="split-io-container" id="split-io-container">
+                    <!-- JS will generate input/output boxes here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
